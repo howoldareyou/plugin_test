@@ -1,0 +1,11 @@
+{
+  "name": "plugin_test",
+  "eggPlugin": "plugin_test",
+  "description": "测试",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {},
+  "author": "lee.zhang",
+  "license": "MIT"
+}
