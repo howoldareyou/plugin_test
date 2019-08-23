@@ -1,0 +1,44 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/sbin:/anaconda3/bin:/Users/lizhang/mysource/bin:/usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/sbin:/anaconda3/bin:/Users/lizhang/mysource/bin:/usr/local/opt/openssl/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  10.15.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  TypeError: Cannot read property 'split' of undefined
+      at Git.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:50677:41)
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:315:13
+      at process._tickCallback (internal/process/next_tick.js:68:7)
+
+npm manifest: 
+  {
+    "name": "plugin_test",
+    "eggPlugin": "plugin_test",
+    "description": "测试",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+      "plugin_test2": "git+https://github.com/howoldareyou/plugin_test2.git",
+      "web_framework_eggjs2": "git+https://github.com/howoldareyou/dfe-web-framework.git"
+    },
+    "devDependencies": {},
+    "author": "lee.zhang",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

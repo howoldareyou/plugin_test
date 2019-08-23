@@ -1,7 +1,6 @@
 'use strict';
 
-const Service = require('egg').Service;
-const JSONbig = require('json-bigint');
+const Service = require('web_framework_eggjs2').Service;
 
 class EmitMsgService extends Service {
   // CURL函数
@@ -22,7 +21,7 @@ class EmitMsgService extends Service {
 
     try {
       res = await this.ctx.curl(url, option);
-      res.data = JSONbig.parse(res.data);
+      res.data = JSON.parse(res.data);
     } catch (e) {
       this.ctx.logger.error('\n[call activeMq API]\nurl: %s\noption: %j\nerror %s', url, option, e.toString());
       this.error('通知配置变更失败');

@@ -1,10 +1,8 @@
 'use strict';
 
-const Service = require('egg').Service;
+const Service = require('web_framework_eggjs2').Service;
 const path = require('path');
-const fs = require('fs-extra');
-
-const { md5, readJson, writeJson, findFiles } = require('web_framework_eggjs/utils');
+const { md5, readJson, writeJson, findFiles, removeFile } = require('web_framework_eggjs2/utils');
 
 const extName = '.cacheJson';
 
@@ -20,7 +18,7 @@ class fileCacheService extends Service {
     const file = path.resolve(this.cacheDir, filename);
     if (data === null) {
       try {
-        await fs.remove(file);
+        await removeFile(file);
       } catch (e) {
         return;
       }
@@ -37,7 +35,7 @@ class fileCacheService extends Service {
       const filename = this.getFilename(name, key);
       const cache = await readJson(path.resolve(this.cacheDir, filename));
       if (ignoreExpire || cache.expireTime >= new Date().getTime()) return cache.data;
-      await fs.remove(path.resolve(this.cacheDir, filename));
+      await removeFile(path.resolve(this.cacheDir, filename));
       return null;
     } catch (error) {
       return null;
@@ -55,7 +53,7 @@ class fileCacheService extends Service {
       try {
         const cache = await readJson(it.path);
         if (cache.expireTime < now) {
-          await fs.remove(it.path);
+          await removeFile(it.path);
         }
       } catch (error) {
         this.logger.error(error);

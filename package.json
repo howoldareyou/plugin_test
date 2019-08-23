@@ -4,7 +4,10 @@
   "description": "测试",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "plugin_test2": "git+https://github.com/howoldareyou/plugin_test2.git",
+    "web_framework_eggjs2": "git+https://github.com/howoldareyou/dfe-web-framework.git"
+  },
   "devDependencies": {},
   "author": "lee.zhang",
   "license": "MIT"
